@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="levelClassicCaseCoordonnees1">
+    	<item>13:227</item>
+        <item>144:227</item>
+        <item>275:227</item>
+        <item>405:227</item>
+        <item>534:227</item>
+        <item>666:227</item>
+    
+    	<item>666:43</item>
+    	<item>534:43</item>
+    	<item>405:43</item>
+    	<item>275:43</item>
+        <item>144:43</item>
+        <item>13:43</item>
+    </string-array>
+    
+    <string-array name="levelClassicCaseSize1">
+    	<item>120:175</item>
+    </string-array>
+    
+    <string-array name="levelClassicPionsCoordonnees1">
+        <item>10:10</item>
+        <item>10:70</item>
+        <item>10:130</item>
+        
+        <item>60:10</item>
+        <item>60:70</item>
+        <item>60:130</item>
+    </string-array>
+    
+    
+    
+</resources>
