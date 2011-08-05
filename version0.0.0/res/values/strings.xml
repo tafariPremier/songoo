@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="app_name">Songo\'o</string>
+    
+    
+    <string name="fr_play">JOUER</string>
+    <string name="fr_score">SCORE</string>
+    <string name="fr_options">OPTIONS</string>
+    <string name="fr_quit">QUITTER</string>
+    <string name="fr_howtoplay">HOW TO PLAY</string>
+    
+    
+    <string name="en_play">PLAY</string>
+    <string name="en_score">HIGH\nSCORE</string>
+    <string name="en_options">OPTIONS</string>
+    <string name="en_quit">QUIT</string>
+    <string name="en_howtoplay">HOW TO PLAY</string>
+    
+    
+</resources>
