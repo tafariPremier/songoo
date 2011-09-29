@@ -1,0 +1,193 @@
+/**
+ * 
+ */
+package com.songoo.step;
+
+import android.content.Context;
+import android.graphics.*;
+import android.util.AttributeSet;
+
+import com.songoo.R;
+import com.songoo.*;
+import com.songoo.controls.*;
+import com.songoo.listener.*;
+import com.songoo.view.*;
+
+/**
+ * @author Martinien
+ *
+ */
+public class MenuStep extends StepView implements IStepView
+{
+	private ImageButton _play;
+	private ImageButton _exit;
+	//private ImageButton _hiscore;
+	private ImageButton _options;
+	private ImageButton _tutorial;
+	
+	private Panel _backPanel;
+	
+	//ControlAnimation _ca;
+	
+	/**
+	 * @param context
+	 */
+	public MenuStep(Context context)
+	{
+		super(context);
+		InitStep();
+	}
+
+	/**
+	 * @param context
+	 * @param attrs
+	 */
+	public MenuStep(Context context, AttributeSet attrs)
+	{
+		super(context, attrs);
+		InitStep();
+	}
+	
+	private void InitStep()
+	{
+		((MenuActivity)_context).LoadBitmap(R.drawable.menu000);
+		
+		/*LabelButton _lbl = new LabelButton(this, "_lbl");
+		_lbl.setSize(72);
+		_lbl.setPosition(50, 100);
+		_lbl.setText("LevelStep1!");
+		addControl(_lbl);*/
+		
+		
+		_play = new ImageButton(this, "playButton", R.drawable.playfr000, R.drawable.playfr001);
+		_play.setPosition(540, 46);
+		_play.setOnClickListener(new OnControlClickListener()
+		{
+			public void onClick(Control c)
+			{
+				((MenuActivity)_context).PlaySound(1);
+				
+				StepNext();
+			}
+		});
+		addControl(_play);
+		
+				
+		_tutorial = new ImageButton(this, "tutorialButton", R.drawable.tutorialfr000, R.drawable.tutorialfr001);
+		_tutorial.setPosition(495, 190);
+		_tutorial.setOnClickListener(new OnControlClickListener()
+		{	
+			public void onClick(Control c)
+			{
+				((MenuActivity)_context).PlaySound(1);
+				
+				_backPanel.getControls().clear();
+				
+				if (_backPanel.getVisibility() == Control.VISIBLE)
+				{
+					_backPanel.setVisibility(Control.INVISIBLE);
+				}
+				else
+				{
+					Label lblTitle = new Label(_backPanel, "lblTitle");
+					lblTitle.setColor(Color.WHITE);
+					lblTitle.setSize(30);
+					lblTitle.setFont("JoeBeckerHeavyBold");
+					lblTitle.setText("TUTORIEL");
+					lblTitle.setPosition(170, 100);
+					
+					Label lblContent = new Label(_backPanel, "lblContent");
+					lblContent.setColor(Color.WHITE);
+					lblContent.setSize(20);
+					lblContent.setFont("JoeBeckerHeavyNormal");
+					lblContent.setText("Le Songo'o est un jeu de grains Camerounais.");
+					lblContent.setPosition(30, 130);
+					
+					_backPanel.addControl(lblTitle);
+					_backPanel.addControl(lblContent);
+					
+					_backPanel.setVisibility(Control.VISIBLE);
+				}
+			}
+		});
+		addControl(_tutorial);
+		
+		
+		_options = new ImageButton(this, "optionsButton", R.drawable.optionsfr000, R.drawable.optionsfr001);
+		_options.setPosition(655, 190);
+		_options.setOnClickListener(new OnControlClickListener()
+		{	
+			public void onClick(Control c)
+			{
+				((MenuActivity)_context).PlaySound(1);
+			}
+		});
+		addControl(_options);
+		
+		
+		_exit = new ImageButton(this, "exitButton", R.drawable.exitfr000, R.drawable.exitfr001);
+		_exit.setPosition(530, 298);
+		_exit.setOnClickListener(new OnControlClickListener()
+		{	
+			public void onClick(Control c)
+			{
+				((MenuActivity)_context).PlaySound(1);
+				
+				((MenuActivity)c.getViewParent().getContext()).exitApplication();
+			}
+		});
+		addControl(_exit);
+		
+		
+		_backPanel = new Panel(this, "backPanel");
+		_backPanel.setPosition(0, 0);
+		_backPanel.setBackgroundPicture(R.drawable.backpanel000);
+		_backPanel.setVisibility(Control.INVISIBLE);
+		addControl(_backPanel);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.songoo.view.IStepView#Start(android.content.Context)
+	 */
+	public void Start()
+	{
+		super.Start();
+		
+		invalidate();
+		
+		/*ControlAnimation _ca = new ControlAnimation(_play);
+		_ca.setOnAnimationWhileListener(new OnAnimationWhileListener()
+		{
+			public void run(ControlAnimation controlAnimation)
+			{
+				if (_play.getTop() >= 50)
+				{
+					_play.setTop(100);
+				}
+			}
+		});
+		
+		_ca.Translate(new Point(10, 10), new Point(200, 400), 10000);*/
+	}
+
+	/* (non-Javadoc)
+	 * @see com.songoo.view.IStepView#Stop(android.content.Context)
+	 */
+	public void Stop()
+	{
+		super.Stop();
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas)
+	{
+		canvas.drawBitmap(((MenuActivity)_context).GetBitmap(R.drawable.menu000), 0, 0, null);
+
+		//Paint p = new Paint();
+		//p.setColor(Color.WHITE);
+		//canvas.drawText(String.valueOf(_ca.getf()), 20, 20, p);
+		//canvas.drawText(String.valueOf(_play.getLeft()) + ":" + String.valueOf(_play.getTop()), 20, 50, p);
+		
+		super.onDraw(canvas);
+	}
+}
