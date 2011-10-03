@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    
+    <string name="en_play">PLAY</string>
+    <string name="en_score">HIGH\nSCORE</string>
+    <string name="en_options">OPTIONS</string>
+    <string name="en_quit">QUIT</string>
+    <string name="en_howtoplay">HOW TO PLAY</string>
+    
+</resources>
